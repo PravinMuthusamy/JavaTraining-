@@ -34,9 +34,9 @@ class Result extends Exam {
 
 public class Day2_14 {
     public static void main(String[] args) {
-        Result ex = new Result();
-        ex.setDetails("Kiran", 62);
-        ex.setMarks(89, 67, 90);
-        System.out.println("The total marks calculated for the student "+ex.name+" is "+ex.totalMark());
+        Result result = new Result();
+        result.setDetails("Kiran", 62);
+        result.setMarks(89, 67, 90);
+        System.out.println("The total marks calculated for the student "+result.name+" is "+result.totalMark());
     }
 }

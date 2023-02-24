@@ -1,3 +1,4 @@
+import java.math.MathContext;
 public class PrimeList {
     public static void main (String[]args)
   {
@@ -10,17 +11,17 @@ public class PrimeList {
        System.out.print (" "+i);
   }
 
-  static boolean isPrime (int n)
+  static boolean isPrime (int num)
   {
  
-    if (n < 2)
+    if (num < 2)
       {
 		return false;
 	  }
     
-    for (int i = 2; i < n; i++)
+    for (int i = 2; i < Math.sqrt(num); i++)
       {
-    if (n % i == 0)
+    if (num % i == 0)
        return false;
       }
 
