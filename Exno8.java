@@ -21,9 +21,9 @@ class Threads extends Thread{
     public void run(){
         synchronized(sbr){
             for(int itr=0;itr<=100;itr++){
-                System.out.println(sbr+" ");
+                System.out.print(sbr+" ");
                }
-               System.out.println();
+               
 
                 int value=sbr.charAt(0);
                 value++;
