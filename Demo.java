@@ -1,5 +1,5 @@
 //q2
-  class Sample {
+class B {
     public void mth1(){
         mth2();
         System.out.println("caller");
@@ -7,7 +7,7 @@
   
     public void mth2(){
         try{
-            //throw new Exception("throws IOEception");
+           // int i=1/0;
             return;
         }
         catch(Exception e){System.out.println("catch-mtch2");}
@@ -17,12 +17,13 @@
         
     }
  }
-   class test{
+class Demo
+   {
         public static void main(String args[])
         {
-            Sample s=new Sample();
+            B s=new B();
             s.mth1();
         }
     
      }
-     
+    
