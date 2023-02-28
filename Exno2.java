@@ -7,22 +7,22 @@ import java.util.concurrent.Executors;
 
 public class Exno2 {
     public static void main(String[] args) {
-        Printmsg pm=new Printmsg();
+        PrintMsg printmessage=new PrintMsg();
         ExecutorService es=Executors.newFixedThreadPool(3);
         es.execute(()->{
-            pm.messageprint("----");
+            printmessage.messagePrint("----");
         });
         es.execute(()->{
-            pm.messageprint("Message");
+            printmessage.messagePrint("Message");
         });
         es.execute(()->{
-            pm.messageprint("----");
+            printmessage.messagePrint("----");
         });
         es.shutdown();
     }
 }
-class Printmsg{
-    synchronized void messageprint(String msg){
+class PrintMsg{
+    synchronized void messagePrint(String msg){
        System.out.print(msg);
     }
 }

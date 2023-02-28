@@ -6,8 +6,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 public class Ex_no4 {
 	public static void main(String[] args) {
-	ExecutorService es=Executors.newFixedThreadPool(3);
-	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+	   ExecutorService es=Executors.newFixedThreadPool(3);
+	   DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	   LocalDateTime now = LocalDateTime.now();
 	   String str=dtf.format(now);
 
@@ -108,7 +108,7 @@ class DigitalClock{
 			try {
 				wait();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 		}

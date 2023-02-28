@@ -8,25 +8,25 @@ public class Exno6 {
 
 	public static void main(String[] args) {
 	    ExecutorService es=Executors.newFixedThreadPool(1);
-		CharacterCount cc=new CharacterCount();
+		CharacterCount countcharacter=new CharacterCount();
 		es.execute(()->{
 			while(true)
-			cc.getChar();
+			countcharacter.getChar();
 		});
 		es.shutdown();
 	}
 
 }
 class CharacterCount{
-	char c;
+	char character;
 	int count=0;
 	void getChar() {
 		System.out.println("Enter a Character: ");
 		Scanner scan=new Scanner(System.in);
-		c=scan.next().charAt(0);
+		character=scan.next().charAt(0);
 		try {
-		if(!((c>='a'&&c<='z')||(c>='A'&&c<='Z'))) {
-			throw new NonAlphabeticChar("Enter Only Alphabets");
+		if(!((character>='a'&&character<='z')||(character>='A'&&character<='Z'))) {
+			throw new NonAlphabeticCharException("Enter Only Alphabets");
 		}else {
 			count++;
 		}
@@ -38,8 +38,8 @@ class CharacterCount{
 		}
 	}
 }
-class NonAlphabeticChar extends Exception{
-	public NonAlphabeticChar(String s) {
+class NonAlphabeticCharException extends Exception{
+	public NonAlphabeticCharException(String s) {
 		System.out.println(s);	
 		}
 	

@@ -7,16 +7,16 @@ public class Exno3 {
 
 	public static void main(String[] args) {
 		ExecutorService es=Executors.newFixedThreadPool(2);
-		Inventory inv=new Inventory();
+		Inventory inventory=new Inventory();
 		es.execute(()->{
 			Thread.currentThread().setName("Producer");
 			for(int i=0;i<3;i++)
-				inv.produce();
+				inventory.produce();
 		});
 		es.execute(()->{
 			Thread.currentThread().setName("Consumer");
 			for(int i=0;i<3;i++)
-				inv.consume();
+				inventory.consume();
 		});
 		es.shutdown();
 
@@ -24,33 +24,35 @@ public class Exno3 {
 
 }
 class Inventory{
-	boolean f=false;
+	int product=0;
 	synchronized void produce() {
-		if(f) {
+		if(product==1) {
 			try {
 				wait();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 		}
 		System.out.println("Produced Product");
-		System.out.println("Inventory Product: 1");
-		f=true;
+		product=1;
+		System.out.println("Inventory Product: "+product);
+		
 		notify();
 	}
 	synchronized void consume() {
-		if(!f) {
+		if(product==0) {
 			try {
 				wait();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 		}
 		System.out.println("Consumed Product");
-		System.out.println("Inventory Product: 0");
-		f=false;
+		product=0;
+		System.out.println("Inventory Product: "+product);
+		
 		notify();
 		
 	}
