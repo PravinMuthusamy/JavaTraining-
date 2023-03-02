@@ -1,26 +1,32 @@
 package Ex4;
 public class SingletonPattern {
-    public static void main(String[] args) {
-        SingletonExample singleton = SingletonExample.getInstance();
-        System.out.println(singleton);
-        SingletonExample singleton1 = SingletonExample.getInstance();
-        System.out.println(singleton1);
-        SingletonExample singleton2 = SingletonExample.getInstance();
-        System.out.println(singleton2);
-    }
-}
-class SingletonExample {
+	public static void main(String[] args) {
+		WashingMachine person1;
+		person1 = WashingMachine.createInstance();
+		person1.message="Person 1 is using";
+		System.out.println(person1.message);
 
-    static SingletonExample singleton=null;
-private SingletonExample() {
+		WashingMachine person2;
+		person2 = WashingMachine.createInstance();
+		person2.message= "Person 2 is using";
+		System.out.println(person2.message);
+	}
 }
 
-    public static SingletonExample getInstance() {
-        if(singleton == null)
-            singleton = new SingletonExample();
-        return singleton;
-      }
-    
-    }
+class WashingMachine {
+	static WashingMachine person;
+	String message = "Message displayed";
 
+	private WashingMachine() {
+		System.out.println("Constructor Invoked");
+	}
 
+	static WashingMachine createInstance() {
+		if (person == null) {
+			person = new WashingMachine();
+			return person;
+		}
+		return person;
+	}
+
+}
