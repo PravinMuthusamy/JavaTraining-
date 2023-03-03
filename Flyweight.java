@@ -6,32 +6,32 @@ import java.util.Scanner;
 
 public class Flyweight {
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		List<String> paint = Arrays.asList("Red", "Green", "Blue", "White", "Yellow");
-		System.out.println(paint);
+		Scanner input = new Scanner(System.in);
+		List<String> displayPaintColor = Arrays.asList("Red", "Green", "Blue", "White", "Yellow");
+		System.out.println(displayPaintColor);
 		while (true) {
 			System.out.println("Enter Color:");
-			String colour = scan.next();
-			ColourBrush colourbrush = (ColourBrush) PaintFactory.getColor(colour);
-			colourbrush.paint();
+			String paintColor = input.next();
+			ColourBrush colorBrush = (ColourBrush) PaintFactory.getColor(paintColor);
+			colorBrush.displayPaintColor();
 		}
 	}
 }
 
 interface Brush {
-	void paint();
+	void displayPaintColor();
 }
 
 class ColourBrush implements Brush {
-	private String colour;
+	private String paintColor;
 
-	public ColourBrush(String colour) {
-		this.colour = colour;
+	public ColourBrush(String paintColor) {
+		this.paintColor = paintColor;
 	}
 
 	@Override
-	public void paint() {
-		System.out.println("Paint colour=" + colour);
+	public void displayPaintColor() {
+		System.out.println("Paint colour=" + paintColor);
 
 	}
 
@@ -40,15 +40,15 @@ class ColourBrush implements Brush {
 class PaintFactory {
 	private static final HashMap<String, ColourBrush> colorMap = new HashMap<>();
 
-	public static Brush getColor(String colour) {
-		ColourBrush colourbrush = (ColourBrush) colorMap.get(colour);
-		if (colourbrush == null) {
-			colourbrush = new ColourBrush(colour);
-			colorMap.put(colour, colourbrush);
-			System.out.println("Buying colour : " + colour);
+	public static Brush getColor(String paintColor) {
+		ColourBrush colorBrush = (ColourBrush) colorMap.get(paintColor);
+		if (colorBrush == null) {
+			colorBrush = new ColourBrush(paintColor);
+			colorMap.put(paintColor, colorBrush);
+			System.out.println("Buying paintColor : " + paintColor);
 		}
 		System.out.println(colorMap);
-		return colourbrush;
+		return colorBrush;
 	}
 
 }
