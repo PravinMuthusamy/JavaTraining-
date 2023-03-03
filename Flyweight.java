@@ -12,7 +12,7 @@ public class Flyweight {
 		while (true) {
 			System.out.println("Enter Color:");
 			String paintColor = input.next();
-			ColourBrush colorBrush = (ColourBrush) PaintFactory.getColor(paintColor);
+			ColorBrush colorBrush = (ColorBrush) PaintFactory.getColor(paintColor);
 			colorBrush.displayPaintColor();
 		}
 	}
@@ -22,10 +22,10 @@ interface Brush {
 	void displayPaintColor();
 }
 
-class ColourBrush implements Brush {
+class ColorBrush implements Brush {
 	private String paintColor;
 
-	public ColourBrush(String paintColor) {
+	public ColorBrush(String paintColor) {
 		this.paintColor = paintColor;
 	}
 
@@ -38,12 +38,12 @@ class ColourBrush implements Brush {
 }
 
 class PaintFactory {
-	private static final HashMap<String, ColourBrush> colorMap = new HashMap<>();
+	private static final HashMap<String, ColorBrush> colorMap = new HashMap<>();
 
 	public static Brush getColor(String paintColor) {
-		ColourBrush colorBrush = (ColourBrush) colorMap.get(paintColor);
+		ColorBrush colorBrush = (ColorBrush) colorMap.get(paintColor);
 		if (colorBrush == null) {
-			colorBrush = new ColourBrush(paintColor);
+			colorBrush = new ColorBrush(paintColor);
 			colorMap.put(paintColor, colorBrush);
 			System.out.println("Buying paintColor : " + paintColor);
 		}
