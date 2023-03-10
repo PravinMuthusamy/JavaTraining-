@@ -67,8 +67,8 @@ class TimeCalculation {
 			localDate=localDate.minusDays(1);
 		} 
 		else {
-		remainingTime = ((float)(distance-totalDistance) / (float)speed);
-		remainingTime = (float)Math.floor(remainingTime * 100) / 100;
+			remainingTime = ((float)(distance-totalDistance) / (float)speed);
+			remainingTime = (float)Math.floor(remainingTime * 100) / 100;
 		}
 		while(true){
 			if(isLeave(localDate))  {
