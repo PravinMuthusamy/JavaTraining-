@@ -37,7 +37,7 @@ class TimeCalculation {
 				System.out.println("Delivery Date:");
 				System.out.println(localDate);
 				System.out.println((float)(distance/speed)+" hrs");
-			return;
+				return;
 			}
 			localDate=localDate.plusDays(1);
 		}
@@ -65,8 +65,9 @@ class TimeCalculation {
 		 if(totalDistance == distance) {
 			remainingTime = 8;
 			localDate=localDate.minusDays(1);
-		}else {
-		remainingTime = ((float)(distance-totalDistance)/(float)speed);
+		} 
+		else {
+		remainingTime = ((float)(distance-totalDistance) / (float)speed);
 		remainingTime = (float)Math.floor(remainingTime * 100) / 100;
 		}
 		while(true){
@@ -81,7 +82,6 @@ class TimeCalculation {
 				break;
 			}
 		}
-		 
 		System.out.println("Delivery Date:");
 		System.out.println(localDate + " ");
 		System.out.println(remainingTime + " hrs");
@@ -96,7 +96,7 @@ class TimeCalculation {
 		int month = months.getValue();
 		if(dayOfWeek == 7 || (month == 1 && date == 26)||(month == 1 && date == 1)|| month == 8 &&date == 15 || (dayOfWeek == 6 && date > 7 && date <= 14)){
 		
-		return true;
+			return true;
 		}
 		return false;
 	}
